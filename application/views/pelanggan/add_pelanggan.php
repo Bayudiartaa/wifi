@@ -26,7 +26,7 @@
                 </div>
                 <div class="form-group">
                     <label for="alamat">Alamat</label>
-                    <textarea id="alamat" name="alamat" class="form-control <?=form_error('alamat') ? 'is-invalid' : null;?>" name="alamat" id="alamat" value="<?=$this->form_validation->set_value('alamat');?>"> </textarea>
+                    <textarea id="alamat" name="alamat" class="form-control <?=form_error('alamat') ? 'is-invalid' : null;?>" name="alamat" id="alamat"><?=$this->form_validation->set_value('alamat');?></textarea>
                     <?=form_error('alamat', '<span class="error invalid-feedback">', '</span>');?>
                 </div>
 

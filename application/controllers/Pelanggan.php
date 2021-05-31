@@ -20,12 +20,8 @@ class Pelanggan extends CI_Controller {
 		$data = [
 			'title' => 'Data Pelanggan',
 		];
-		$this->form_validation->set_rules('nama', 'Nama', 'trim|required|is_unique[pelanggan.nama_pelanggan]');
-		$this->form_validation->set_rules('telp', 'No Telepon', 'trim|required|numeric|max_length[13]');
-		$this->form_validation->set_rules('ktp', 'No Ktp', 'required|required|numeric|max_length[16]');
-		$this->form_validation->set_rules('alamat', 'Alamat', 'trim|required');
 
-		if ($this->form_validation->run() == false) {
+		if ($this->form_validation->run('pelanggan.add') == false) {
 			// jika validasi form gagal
 			$this->template->load('template', 'pelanggan/add_pelanggan', $data);
 		} else {
@@ -42,12 +38,8 @@ class Pelanggan extends CI_Controller {
 		$data = [
 			'title' => 'Data Pelanggan',
 		];
-		$this->form_validation->set_rules('nama', 'Nama', 'trim|required|callback_pelanggan_check');
-		$this->form_validation->set_rules('telp', 'No Telepon', 'trim|required|numeric|max_length[13]');
-		$this->form_validation->set_rules('ktp', 'No Ktp', 'trim|required|numeric|max_length[16]');
-		$this->form_validation->set_rules('alamat', 'Alamat', 'trim|required');
 
-		if ($this->form_validation->run() == false) {
+		if ($this->form_validation->run('pelanggan.edit') == false) {
 			// jika validasi form gagal
 			$query = $this->Pelanggan_m->getPelanggan($id);
 			// jika data yang di edit ditemukan
@@ -69,15 +61,15 @@ class Pelanggan extends CI_Controller {
 		}
 	}
 
-	public function pelanggan_check() {
-		// query untuk cek username
-		$nama_pelanggan = $this->input->post('nama_pelanggan');
+	public function no_ktp_check() {
+		$no_ktp = $this->input->post('ktp');
 		$id = $this->input->post('id');
+
 		// jika nama_pelanggan yang di input sudah ada di database tapi idnya tidak sama dengan id yg di update
-		$query = $this->db->query("SELECT * FROM pelanggan WHERE nama_pelanggan = '$nama_pelanggan' AND id != '$id' ");
+		$query = $this->db->query("SELECT * FROM pelanggan WHERE no_ktp = '$ktp' AND id != '$id' ");
 
 		if ($query->num_rows() > 0) {
-			$this->form_validation->set_message('pelanggan_check', '{field} ini sudah dipakai, silahkan ganti!');
+			$this->form_validation->set_message('no_ktp_check', '{field} ini sudah dipakai, silahkan ganti!');
 			return FALSE;
 		} else {
 			return TRUE;
