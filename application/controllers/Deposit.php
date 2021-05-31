@@ -56,10 +56,18 @@ class Deposit extends CI_Controller
           redirect('deposit');  
          }   
       } else {
-          $this->Deposit_m->edit();
-          $this->session->Set_flashdata('pesan', '<div class="alert alert-success">
-              Data Deposit berhasil diupdate! </div>');
-          redirect('deposit');
+            $data = [
+                'id' => $id,
+                'id_pelanggan' => $this->input->post('pelanggan', true),
+                'jumlah_deposit' => $this->input->post('jumlah', true),
+                'updated_at' => date('Y-m-d H:i:s'),
+                'updated_by' => $this->session->username,
+            ];
+            
+            $this->Deposit_m->edit($data);
+            $this->session->Set_flashdata('pesan', '<div class="alert alert-success">
+                Data Deposit berhasil diupdate! </div>');
+            redirect('deposit');
       }
     }
 
@@ -69,7 +77,5 @@ class Deposit extends CI_Controller
 		$this->session->set_flashdata('pesan', '<div class="alert alert-success">
 			Data Deposit berhasil dihapus! </div>');
 		redirect('deposit');
-        // var_dump($this->Deposit_m->delete($id));
-        // die;
 	}
 }

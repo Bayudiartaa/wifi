@@ -14,7 +14,7 @@
                     <select name="pelanggan" id="pelanggan" class="form-control">
                         <option value=""> -Pilih- </option>
                         <?php foreach ($pelanggan as $cus => $data): ?>
-                            <option value="<?=$data->id;?>" <?=$data->id == $row->id ? 'selected' : null;?>><?=$data->nama_pelanggan;?></option>
+                            <option value="<?=$data->id;?>" <?=$data->id == $row->id_pelanggan ? 'selected' : null;?>><?=$data->nama_pelanggan;?></option>
                         <?php endforeach;?>
                     </select>    
                     <?=form_error('pelanggan', '<span class="error invalid-feedback">', '</span>');?>
