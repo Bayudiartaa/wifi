@@ -28,7 +28,13 @@
                                     <td><?= $data->tarif?></td>
                                     <td><?= date('d-M-Y', strtotime($data->created_at)); ?></td>
                                     <td>
-                                    <a class="btn btn-outline-success btn-sm" href="<?=base_url('pemasangan/edit/');?><?=$data->id;?>"><i class="fa fa-edit"></i></a>
+                                    <a class="btn btn-outline-success btn-sm" href="<?=base_url('deposit/edit/');?><?=$data->id;?>"><i class="fa fa-edit"></i></a>
+                                    <form action="<?= base_url('pemasangan/delete') ?>" method="POST" class="d-inline">
+                                            <input type="hidden" name="id" value="<?= $data->id ; ?>">
+                                            <button class="btn btn-outline-danger btn-sm tombol-hapus" type="submit">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
+                                    </form>
                                     </td>    
                                 </tr>
                             <?php endforeach;?>

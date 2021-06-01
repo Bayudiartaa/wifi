@@ -12,8 +12,8 @@
                 <div class="form-group">
                     <label for="nama">Nama Pelanggan</label>
                     <input type="hidden" name="id" value="<?=$row->id;?>">
-                    <input type="text" class="form-control <?=form_error('nama') ? 'is-invalid' : null;?>" name="nama" id="nama" value="<?=$this->input->post('nama') ?? $row->nama_pelanggan;?>">
-                    <?=form_error('pelanggan', '<span class="error invalid-feedback">', '</span>');?>
+                    <input type="text
+                    <?=form_error('pelanggan', '<span class="error invalid-feedback">', '</span>');?>" class="form-control <?=form_error('nama') ? 'is-invalid' : null;?>" name="nama" id="nama" value="<?=$this->input->post('nama') ?? $row->nama_pelanggan;?>">
                 </div>
                 <div class="form-group">
                     <label for="telp">No Telepon</label>
