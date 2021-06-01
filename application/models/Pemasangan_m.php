@@ -17,10 +17,10 @@ class Pemasangan_m extends CI_Model
         return $query;
     }
 
-    public function add(){
+    public function add($data){
         if(!empty($data))
 			$this->db->insert('pemasangan', $data);
-			return $this->db->insert_id();
+            return $this->db->insert_id();
     }
 
 }

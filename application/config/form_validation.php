@@ -71,7 +71,7 @@ $config = [
     ],
     'pemasangan.add_pemasangan' => [
         [
-            'field' => 'pelanggan',
+            'field' => 'nama',
             'label' => 'Nama',
             'rules' => 'trim|required'
         ],
@@ -83,7 +83,7 @@ $config = [
         [
             'field' => 'ktp',
             'label' => 'No Ktp',
-            'rules' => 'trim|reuired|is_numeric|max_length[16]|is_unique[pelanggan.no_ktp]' 
+            'rules' => 'trim|required|is_numeric|max_length[16]' 
         ],
         [
             'field' => 'alamat',

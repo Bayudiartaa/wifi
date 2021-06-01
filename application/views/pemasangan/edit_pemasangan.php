@@ -10,14 +10,13 @@
                <div class="mb-4">
                     <a class="btn btn-warning" href="<?=base_url('pemasangan');?>"><i class="fa fa-undo"></i> Kembali</a>
                 </div>
-                <form action="<?= base_url('pemasangan/add_pemasangan'); ?>" method="post" autocomplete="off">
                     <div class="form-group">
                     </div>
                     <div class="row">
                      <div class="col-md-6">
                     <div class="form-group">
                         <label for="nama">Nama Pelanggan</label>
-                        <input type="text" name="nama" class="form-control" id="nama">
+                        <input type="text" name="nama" class="form-control" id="nama" value="<?=$row->id;?>">
                         <small class="text-danger"><?= form_error('nama'); ?></small>
                     </div>
                     </div>

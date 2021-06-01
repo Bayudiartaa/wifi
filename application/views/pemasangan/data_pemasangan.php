@@ -23,14 +23,12 @@
                             foreach ($pemasangan->result() as $pema => $data): ?>
                                 <tr>
                                     <td><?= $no++ ?>.</td>
+                                    <td><?= $data->nama_pelanggan ?></td>
+                                    <td><?= $data->alamat_pemasangan?></td>
+                                    <td><?= $data->tarif?></td>
+                                    <td><?= date('d-M-Y', strtotime($data->created_at)); ?></td>
                                     <td>
-                                    <a class="btn btn-outline-success btn-sm" href="<?=base_url('pemasangan/edit/');?><?=$data->id_pemasangan;?>"><i class="fa fa-edit"></i></a>
-                                    <form action="<?= base_url('pemasangan/delete') ?>" method="POST" class="d-inline">
-                                            <input type="hidden" name="id" value="<?= $data->id_pemasanan; ?>">
-                                            <button class="btn btn-outline-danger btn-sm tombol-hapus" type="submit">
-                                            <i class="fa fa-trash"></i>
-                                        </button>
-                                    </form>
+                                    <a class="btn btn-outline-success btn-sm" href="<?=base_url('pemasangan/edit/');?><?=$data->id;?>"><i class="fa fa-edit"></i></a>
                                     </td>    
                                 </tr>
                             <?php endforeach;?>

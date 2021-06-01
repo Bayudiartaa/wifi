@@ -13,6 +13,8 @@ class Pemasangan extends CI_Controller
     {
         $data['title'] = 'Data Pemasangan';
 		$data['pemasangan'] = $this->Pemasangan_m->getPemasangan();
+        // var_dump($data['pemasangan'] = $this->Pemasangan_m->getPemasangan());
+        // die();
         $this->template->load('template', 'pemasangan/data_pemasangan', $data);
     }
 
@@ -21,41 +23,39 @@ class Pemasangan extends CI_Controller
     {
         $data['title'] =  'Pemasangan';
         $data['pemasangan'] = $this->Pemasangan_m->getPemasangan();
-		// $data['pelanggan'] = $this->Pelanggan_m->getPelanggan()->result();
+		$data['pelanggan'] = $this->Pelanggan_m->getPelanggan()->result();
 
       if($this->form_validation->run('pemasangan.add_pemasangan') == false){
         $this->template->load('template', 'pemasangan/add_pemasangan', $data);
-         $this->session->set_flashdata('pesan', '<div class="alert alert-danger">
-                Data Pemasangan gagal ditambahkan! </div>');
-            // $this->template->load('template', 'pemasangan/add_pemasangan', $data);
-        }else{
-            $nama_pelanggan = $this->input->post('nama_pelanggan');
-            $no_telepon = $this->input->post('no_telepon');
-            $no_ktp = $this->input->post('no_ktp');
+        } else {
+            $nama_pelanggan = $this->input->post('nama');
+            $no_telepon = $this->input->post('telp');
+            $no_ktp = $this->input->post('ktp');
             $alamat = $this->input->post('alamat');
-
             $data_pelanggan = array(
-                    'nama_pelanggan'=>$nama_pelanggan,
-                    'no_telepon'=>$no_telepon,
-                    'no_ktp'=>$no_ktp,
+                    'nama'=>$nama_pelanggan,
+                    'telp'=>$no_telepon,
+                    'ktp'=>$no_ktp,
                     'alamat'=>$alamat,
             );
-            $id_pelanggan = $this->Pelanggan_m->add($data_pelanggan);
-        
+            // var_dump($data_pelanggan);
+            // die();
+            $id_pelanggan  = $this->Pelanggan_m->add('pelanggan', $data_pelanggan);
             $tarif = $this->input->post('tarif');
-            $tanggal_pemasangan = $this->input->post('tanggal_pemasangan');
+            $tanggal_pemasangan = $this->input->post('tanggal');
             $alamat_pemasangan = $this->input->post('alamat_pemasangan');
         
             $data_pemasangan = array(
-                    'tarif'=>$tarif,
                     'tanggal_pemasangan'=>$tanggal_pemasangan,
+                    'tarif'=>$tarif,
                     'alamat_pemasangan'=>$alamat_pemasangan,
                     'id_pelanggan' => $id_pelanggan
             );
+        //  var_dump($data_pemasangan);
+        //  die();
+            $insert = $this->Pemasangan_m->add($data_pemasangan);
             $this->session->set_flashdata('pesan','<div class="alert alert-success">
-                                Data Pemasangan berhasil diubah! </div>'
-            );
-        
+                    Data Pemasangan berhasil Ditambah! </div>' );
             redirect('pemasangan');
         }
     }

@@ -21,7 +21,9 @@ class Pelanggan_m extends CI_Model{
             'created_at' => date('Y-m-d H:i:s'),
 			'created_by' => $this->session->username,
 		];
+	
 		$this->db->insert('pelanggan', $data);
+		return $this->db->insert_id();
 	}
 
 	public function edit() {
