@@ -24,7 +24,7 @@ class Profile extends CI_Controller {
             $new_password = $this->input->post('new_password1');
             if (!password_verify($current_password, $data['user']['password'])) {
                 $this->session->set_flashdata('pesan', '<div class="alert alert-danger">
-                     Wrong current password!</div>');
+                    Password Lama Salah</div>');
                 redirect('profile/changepassword');
             } else {
                 if ($current_password == $new_password) {

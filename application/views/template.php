@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="<?= base_url()?>assets/modules/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="<?= base_url()?>assets/modules/fontawesome/css/all.min.css">
   <link rel="stylesheet" href="<?= base_url()?>assets/modules/datatables/datatables.min.css">
+  <link rel="stylesheet" href="<?= base_url()?>assets/modules/select2/dist/css/select2.min.css">
   <!-- CSS Libraries -->
 
   <!-- Template CSS -->
@@ -120,6 +121,7 @@
   <script src="<?= base_url()?>assets/modules/jquery.nicescroll/dist/jquery.nicescroll.min.js"></script>
   <script src="<?= base_url()?>assets/modules/moment.min.js"></script>
   <script src="<?= base_url()?>assets/modules/swal/sweetalert2.all.min.js"></script>
+  <script src="<?= base_url()?>assets/modules/select2/dist/js/select2.min.js"></script>
   <script src="<?= base_url()?>assets/js/myscript.js"></script>
   <script src="<?= base_url()?>assets/js/stisla.js"></script>
   <!-- JS Libraies -->

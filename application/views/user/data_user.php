@@ -9,12 +9,12 @@
 					<div class="table-responsive">
 						<table class="table table-striped" id="dataTable" width="100%" cellspacing="0">
 							<thead>
-								<tr>
+							<tr>
 								<th>No</th>
 								<th>Username</th>
 								<th>Dibuat</th>
 								<th>Aksi</th>
-								</tr>
+							</tr>
 							</thead>
 							<tbody>
 								<?php $no = 1;
@@ -40,5 +40,9 @@
 				</div>
 			</div>
 		</div>
+	</div>
+</div>
+								<!-- </div> -->
+
 
 

@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-12">
+  <div class="col-lg-12">
     <?=$this->session->flashdata('pesan');?>
         <div class="card">
             <div class="card-header">
@@ -44,4 +44,5 @@
             </div>
         </div>
     </div>
+</div>
 

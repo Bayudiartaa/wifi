@@ -1,9 +1,9 @@
 <div class="row">
-  <div class="col-lg-12">
+  <div class="col-12">
     <?=$this->session->flashdata('pesan');?>
         <div class="card">
             <div class="card-header">
-                    <a href="<?= base_url('deposit/add') ?>" class="btn btn-success" ><i class="fa fa-user-plus"></i>Tambah</a>
+                    <a href="<?= base_url('pemasangan/add_pemasangan') ?>" class="btn btn-success" ><i class="fa fa-user-plus"></i>Tambah</a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -12,23 +12,21 @@
                             <tr>
                             <th>No</th>
                             <th>Nama Pelanggan</th>
-                            <th>Jumlah Deposit</th>
-                            <th>Tanggal Deposit</th>
+                            <th>Alamat Pemasangan</th>
+                            <th>Tarif</th>
+                            <th>Tanggal</th>
                             <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php $no = 1;
-                            foreach ($deposit->result() as $depo => $data): ?>
+                            foreach ($pemasangan->result() as $pema => $data): ?>
                                 <tr>
                                     <td><?= $no++ ?>.</td>
-                                    <td><?= $data->nama_pelanggan ?></td>
-                                    <td><?= $data->jumlah_deposit?></td>
-                                    <td><?= date('d-M-Y', strtotime($data->created_at)); ?></td>
                                     <td>
-                                    <a class="btn btn-outline-success btn-sm" href="<?=base_url('deposit/edit/');?><?=$data->id_deposit;?>"><i class="fa fa-edit"></i></a>
-                                    <form action="<?= base_url('deposit/delete') ?>" method="POST" class="d-inline">
-                                            <input type="hidden" name="id" value="<?= $data->id_deposit; ?>">
+                                    <a class="btn btn-outline-success btn-sm" href="<?=base_url('pemasangan/edit/');?><?=$data->id_pemasangan;?>"><i class="fa fa-edit"></i></a>
+                                    <form action="<?= base_url('pemasangan/delete') ?>" method="POST" class="d-inline">
+                                            <input type="hidden" name="id" value="<?= $data->id_pemasanan; ?>">
                                             <button class="btn btn-outline-danger btn-sm tombol-hapus" type="submit">
                                             <i class="fa fa-trash"></i>
                                         </button>

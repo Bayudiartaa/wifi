@@ -11,7 +11,7 @@
             <form class="form-horizontal" action="<?=base_url('deposit/add');?>" method="post">
                 <div class="form-group">
                     <label for="pelanggan">Nama Pelanggan</label>
-                    <select name="pelanggan" id="pelanggan" class="form-control">
+                    <select name="pelanggan" id="pelanggan" class="form-control select2">
                         <option value=""> -Pilih- </option>
                         <?php foreach ($pelanggan as $cus => $data): ?>
                             <option value="<?=$data->id;?>"><?=$data->nama_pelanggan;?></option>

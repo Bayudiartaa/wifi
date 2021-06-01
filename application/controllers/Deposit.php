@@ -21,10 +21,7 @@ class Deposit extends CI_Controller
         $data['deposit'] = $this->Deposit_m->getDeposit();
 		$data['pelanggan'] = $this->Pelanggan_m->getPelanggan()->result();
 
-        $this->form_validation->set_rules('pelanggan', 'Nama', 'trim|required');
-        $this->form_validation->set_rules('jumlah', 'Jumlah Deposit', 'trim|required');
-
-        if ($this->form_validation->run() == false) {
+        if ($this->form_validation->run('deposit.add') == false) {
             $this->template->load('template', 'deposit/add_deposit', $data);
         } else { 
             $this->Deposit_m->add();
@@ -40,10 +37,8 @@ class Deposit extends CI_Controller
       $data = [
           'title' => 'Data Deposit',
       ];
-      $this->form_validation->set_rules('pelanggan', 'Nama', 'trim|required');
-      $this->form_validation->set_rules('jumlah', 'Jumlah Deposit', 'trim|required');
 
-      if ($this->form_validation->run() == false) {
+      if ($this->form_validation->run('deposit.edit') == false) {
           $query = $this->Deposit_m->getDeposit($id);
 
           if ($query->num_rows() > 0) {
@@ -65,7 +60,7 @@ class Deposit extends CI_Controller
             ];
             
             $this->Deposit_m->edit($data);
-            $this->session->Set_flashdata('pesan', '<div class="alert alert-success">
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success">
                 Data Deposit berhasil diupdate! </div>');
             redirect('deposit');
       }
